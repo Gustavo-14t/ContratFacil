@@ -47,7 +47,7 @@ e terá que informar seu telefone e sua especialidade.
 e quando o usuário for fazer login novamente, então só precisará ser feito
 a autenticação do email e senha escritos com o email e senha do banco de dados.
 
-! [Saiba Mais](flutter_application_1/docs/arquitetura.md)
+! [Saiba Mais](docs/arquitetura.md)
 
 ## BANCO DE DADOS
 

@@ -3,7 +3,7 @@
 Contrata Fácil conta com  as seguintes principais:
 
 <!-- Código para por imagens dentro da documentação  -->
-[Diagrama Caso de Uso](docs/SERVIÇO.png)
+[Diagrama Caso de Uso](flutter_application_1/docs/SERVIÇO.png)
 [Diagrama Conceitual](docs/Conceitual.png)
 
 1. **Registro de Usuário**

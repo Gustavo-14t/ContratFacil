@@ -25,7 +25,7 @@ prestador, tela de serviços, tela de perfil, tela Home.
 intermediação entre **Model** e **View**, sendo responsável 
 pelo gerenciamento dos dados entre telas e banco de dados. 
 
- ![Saiba Mais](flutter_application_1/docs/arquitetura.md)
+ ![Saiba Mais](docs/arquitetura.md)
 
  ## FUNCIONALIDADES 
 

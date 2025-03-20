@@ -1,6 +1,7 @@
+import 'dart:io';
+import 'package:sqflite_common_ffi/sqflite_ffi.dart';  // Para inicialização FFI
 import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
-
+import 'package:path/path.dart';  // Para manipulação de caminhos
 
 class Bancodedados {
   static final Bancodedados _instancia = Bancodedados._internal();
@@ -13,6 +14,13 @@ class Bancodedados {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
+
+    // Inicializa a FFI para SQLite no desktop (Windows, MacOS, Linux)
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+      sqfliteFfiInit();  // Inicializa a biblioteca sqflite_common_ffi
+      databaseFactory = databaseFactoryFfi;  // Define a fábrica de banco de dados para FFI
+    }
+
     _database = await _initDatabase();
     return _database!;
   }
@@ -24,7 +32,7 @@ class Bancodedados {
       path,
       version: 1,
       onCreate: _onCreate,
-      // onUpgrade: _onUpgrade, // Adicione este método se você precisar atualizar o banco de dados no futuro
+      // onUpgrade: _onUpgrade, // Se precisar de atualizações no futuro
     );
   }
 
@@ -48,6 +56,7 @@ class Bancodedados {
         specialty TEXT
       )
     ''');
+
     // Criação da tabela Avaliação
     await db.execute('''
       CREATE TABLE Avaliacao (
@@ -60,11 +69,11 @@ class Bancodedados {
          FOREIGN KEY (idProvider) REFERENCES Provider (idProvider)
        )
     ''');
-
   }
 
   Future _onUpdate(Database db, int version) async {
-    // Atualize o banco de dados se necessário (opcional)
+    // Atualização do banco de dados se necessário
   }
-}
 
+  
+}
